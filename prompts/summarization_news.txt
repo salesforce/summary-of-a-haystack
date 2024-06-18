@@ -1,0 +1,12 @@
+You are given [N_articles] news articles about the main subject "[TOPIC]."
+
+```
+[ARTICLES]
+```
+
+In some of the conversation the following topic is discussed: "[SUBTOPIC]".
+Your objective is to summarize the [N_insights] main insights from the conversations regarding that topic.
+Careful:
+- [Format] You should format your summary as a bullet point list, where each bullet point is a different insight consisting of a single sentence.
+- [References] For each insight, you should refer to the relevant articles by using the IDs given in the article list. For example: "Increased demand for vaccines may strain already fragile supply chains [1][4]" which means that the insight is supported by Document 1 and Document 4. No need to say "Article 14", you can just use the following structure: "[14]".
+- [Length] Your summary should be no longer than 300 words in total.

@@ -1,0 +1,7 @@
+pandas
+tiktoken
+torch
+transformers
+sentence-transformers
+scikit-learn
+tqdm

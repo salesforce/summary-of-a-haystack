@@ -1,0 +1,12 @@
+You are given [N_conversations] conversations within the following scenario: "[SCENARIO]".
+The conversations involve the following participants: [PARTICIPANTS]. In each conversation, the participants might be different, with different names, but all the conversations fall into the same scenario.
+
+```
+[CONVERSATIONS]
+```
+
+Your objective is to produce a summary of all the document with [N_insights] bullet points covering the main insights regarding the following query: [QUERY].
+Careful:
+- [Format] You should format your summary as a bullet point list, where each bullet point is a different insight.
+- [References] For each insight, you should refer to the relevant conversations by using the IDs given in the conversation list. For example: "some of the doctors ask patients for their medical history[1][4]" which means that the insight is supported by Document 1 and Document 4. No need to say "Conversation 14", you can just use the following structure: "[14]".
+- [Length] Your summary should be no longer than 300 words in total.
