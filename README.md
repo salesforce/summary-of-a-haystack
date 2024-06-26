@@ -2,6 +2,10 @@
 
 This repository contains the data and code for the experiments in the SummHay paper.
 
+<p align="center">
+  <img height="400" src="SummHay_Illustration.png">
+</p>
+
 # Accessing the Data
 
 We publicly release the 10 Haystacks (5 in conversational domain, 5 in the news domain). They are provided in the `data/` folder. There is one Haystack per `.json` file, and they each follow the following schema:
