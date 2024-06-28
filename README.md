@@ -6,7 +6,16 @@ This repository contains the data and code for the experiments in the SummHay pa
   <img height="400" src="SummHay_Illustration.png">
 </p>
 
-# Accessing the Data
+## Table of Contents
+
+1. [Accessing the Data](#accessing-the-data)
+2. [Running the Pipeline](#running-the-pipeline)
+3. [Visualizing Results on SummHay](#visualizing-results-on-summhay)
+4. [Citation](#citation)
+5. [Get Involved](#get-involved)
+
+
+## Accessing the Data
 
 We publicly release the 10 Haystacks (5 in conversational domain, 5 in the news domain). They are provided in the `data/` folder. There is one Haystack per `.json` file, and they each follow the following schema:
 ```
@@ -59,7 +68,7 @@ We publicly release the 10 Haystacks (5 in conversational domain, 5 in the news 
 }
 ```
 
-# Running the Pipeline
+## Running the Pipeline
 
 The pipeline can be run with three consecutive scripts: (1) `populate_retriever_scores.py` (optional, if implementing a new retriever), (2) `populate_summaries.py` which populates the summary outputs, (3) `populate_eval.py` which generates the evaluation scores (using GPT-4o by default.
 Some notes:
@@ -76,9 +85,24 @@ python populate_eval.py --fn data/topic_news1.json
 The above would run the SummHay experiment (i.e., generate summaries) for all retrievers, and for the full-context settings, for a model named Claude4 (whose access would have to be implemented within `populate_summaries.py`), followed by the automatic evaluation on those summaries.
 
 
-# Visualizazing Results on SummHay
+## Visualizing Results on SummHay
 
 The `Evaluation.ipynb` notebook contains the scripts that can be used to compile and visualize results, these are the exact scripts that were used to generate Tables in the paper.
 
 
 
+## Citation
+
+```
+@article{laban2024SummHay,
+  title={SummEval: Re-evaluating Summarization Evaluation},
+  author={Fabbri, Alexander R and Kry{\'s}ci{\'n}ski, Wojciech and McCann, Bryan and Xiong, Caiming and Socher, Richard and Radev, Dragomir},
+  journal={arXiv preprint arXiv:},
+  year={2024}
+}
+```
+
+### Get Involved
+
+Please create a GitHub issue if you have any questions, suggestions, requests or bug-reports. 
+We welcome PRs!
