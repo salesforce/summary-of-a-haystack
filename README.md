@@ -1,6 +1,6 @@
 # Summary of a Haystack
 
-This repository contains the data and code for the experiments in the SummHay paper.
+This repository contains the data and code for the experiments in the [SummHay](https://arxiv.org/pdf/2407.01370) paper.
 
 <p align="center">
   <img height="400" src="SummHay_Illustration.png">
@@ -95,9 +95,9 @@ The `Evaluation.ipynb` notebook contains the scripts that can be used to compile
 
 ```
 @article{laban2024SummHay,
-  title={SummEval: Re-evaluating Summarization Evaluation},
-  author={Fabbri, Alexander R and Kry{\'s}ci{\'n}ski, Wojciech and McCann, Bryan and Xiong, Caiming and Socher, Richard and Radev, Dragomir},
-  journal={arXiv preprint arXiv:},
+  title={Summary of a Haystack: A Challenge to Long-Context LLMs and RAG Systems},
+  author={Laban, Philippe and Fabbri, Alexander R and Xiong, Caiming and Wu, Chien-Sheng},
+  journal={arXiv preprint arXiv:https://arxiv.org/pdf/2407.01370},
   year={2024}
 }
 ```
