@@ -54,9 +54,12 @@ def compute_single_sample_results(bullets, evals, topic, insightid2ref_citations
     scores = compute_single_sample_scores(bullets, evals, topic, insightid2ref_citations, partial_score, cite_offset=cite_offset)
     return {k: np.mean(v) for k, v in scores.items()}
 
-def compute_full_results(fn, partial_score=0.5, skip_mean=False):
-    with open(fn, "r") as f:
-        topic = json.load(f)
+def compute_full_results(fn_or_json, partial_score=0.5, skip_mean=False):
+    if isinstance(fn_or_json, dict):
+        topic = fn_or_json
+    else:
+        with open(fn_or_json, "r") as f:
+            topic = json.load(f)
 
     models_run = list(topic["subtopics"][0]["summaries"].keys())
     models_run = [m.replace("summary_subtopic_", "") for m in set(models_run)]
@@ -89,14 +92,14 @@ def resort_columns(results, sorted_columns):
         new_results[key] = {col: results[key].get(col, np.nan) for col in sorted_columns}
     return new_results
 
-def compute_2d_rag_results(fns, partial_score=0.5, retrivers_skip=[], summarizer_skip=[], sort_key=None, sort_retriever_key=None, score_keys=["coverage_score", "citation_score", "joint_score"]):
+def compute_2d_rag_results(fn_or_jsons, partial_score=0.5, retrivers_skip=[], summarizer_skip=[], sort_key=None, sort_retriever_key=None, score_keys=["coverage_score", "citation_score", "joint_score"]):
     if "count" not in score_keys:
         score_keys += ["count"]
 
     results = {score_key: {} for score_key in score_keys}
 
-    for fn in fns:
-        flat_results = compute_full_results(fn, partial_score, skip_mean=True)
+    for fn_or_json in fn_or_jsons:
+        flat_results = compute_full_results(fn_or_json, partial_score, skip_mean=True)
 
         for score_key in score_keys:
             for r in flat_results:

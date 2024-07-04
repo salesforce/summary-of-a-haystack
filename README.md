@@ -1,6 +1,6 @@
 # Summary of a Haystack
 
-This repository contains the data and code for the experiments in the [SummHay](https://arxiv.org/pdf/2407.01370) paper.
+This repository contains the data and code for the experiments in the SummHay paper.
 
 <p align="center">
   <img height="400" src="SummHay_Illustration.png">
@@ -17,7 +17,18 @@ This repository contains the data and code for the experiments in the [SummHay](
 
 ## Accessing the Data
 
-We publicly release the 10 Haystacks (5 in conversational domain, 5 in the news domain). They are provided in the `data/` folder. There is one Haystack per `.json` file, and they each follow the following schema:
+We publicly release the 10 Haystacks (5 in conversational domain, 5 in the news domain).
+You can access the Haystacks via huggingface datasets: 
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("Salesforce/summary-of-a-haystack")['train']
+```
+
+They are also provided in the `data/` folder. There is one Haystack per `.json` file. 
+
+Each Haystack follows the following schema:
 ```
 {
     "topic_id": "ObjectId()",
@@ -95,9 +106,9 @@ The `Evaluation.ipynb` notebook contains the scripts that can be used to compile
 
 ```
 @article{laban2024SummHay,
-  title={Summary of a Haystack: A Challenge to Long-Context LLMs and RAG Systems},
-  author={Laban, Philippe and Fabbri, Alexander R and Xiong, Caiming and Wu, Chien-Sheng},
-  journal={arXiv preprint arXiv:https://arxiv.org/pdf/2407.01370},
+  title={SummEval: Re-evaluating Summarization Evaluation},
+  author={Fabbri, Alexander R and Kry{\'s}ci{\'n}ski, Wojciech and McCann, Bryan and Xiong, Caiming and Socher, Richard and Radev, Dragomir},
+  journal={arXiv preprint arXiv:},
   year={2024}
 }
 ```
