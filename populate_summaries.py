@@ -64,8 +64,11 @@ def populate_subtopic_summaries(args):
         if topic["documents"][idx].get("idx") is None:
             topic["documents"][idx]["idx"] = idx
 
-    for model_card in tqdm.tqdm(args.model_cards, desc=f"Populating summaries of {args.fn}"):
-        for subtopic in topic["subtopics"]:
+    model_cards = args.model_cards
+    if len(model_cards) > 1:
+        model_cards = tqdm.tqdm(model_cards, desc=f"Populating summaries of {args.fn}")
+    for model_card in model_cards:
+        for subtopic in tqdm.tqdm(topic["subtopics"]):
             if "summaries" not in subtopic:
                 subtopic["summaries"] = {}
                 subtopic["eval_summaries"] = {}
