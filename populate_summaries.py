@@ -27,7 +27,8 @@ def summarize(relev_docs, topic, subtopic, model_card):
         num_insights_discussed = len(insights_discussed)
         prompt_summarization_populated = prompt_summarization.replace("[N_articles]", str(len(relev_docs))).replace("[ARTICLES]", relev_docs_str).replace("[TOPIC]", topic['topic']).replace("[N_insights]", str(num_insights_discussed)).replace("[SUBTOPIC]", subtopic['subtopic'])
 
-    response_summary = generate([{"role": "user", "content": prompt_summarization_populated}], model=model_card, step="sohard-summ-gen")
+    max_tokens = 10000 if "o1-" in model_card else 1000 # Let it have room to think
+    response_summary = generate([{"role": "user", "content": prompt_summarization_populated}], model=model_card, step="sohard-summ-gen", max_tokens=max_tokens, timeout=400)
     return response_summary
 
 def get_insights_discussed(documents, subtopic):
@@ -74,7 +75,6 @@ def populate_subtopic_summaries(args):
                 subtopic["eval_summaries"] = {}
             if args.retrieval_summ:
                 retrievers = subtopic["retriever"].keys()
-                # retrievers = ["oracle", "random"]
                 for retriever in retrievers:
                     pop_key = f"summary_subtopic_{retriever}_{model_card}"
                     if pop_key in subtopic["summaries"]:
