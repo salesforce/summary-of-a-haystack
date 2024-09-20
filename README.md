@@ -1,10 +1,17 @@
 # Summary of a Haystack
 
-This repository contains the data and code for the experiments in the [SummHay](https://arxiv.org/pdf/2407.01370) paper.
+This repository contains the data and code for the experiments in the [SummHay](https://arxiv.org/pdf/2407.01370) EMNLP 2024 paper.
 
 <p align="center">
   <img height="400" src="SummHay_Illustration.png">
 </p>
+Figure: High-level diagram of the data synthesis process followed to generate Haystacks with accompanying queries, used to evaluate both RAG systems and long-context LLMs.
+
+<p align="center">
+  <img height="400" src="SummHay_Results_Table.png">
+</p>
+Table: Summary of a Haystack results of human performance, RAG systems, and Long-Context LLMs. Results are reported using three metrics: Coverage (left), Citation (center), and Joint (right) scores. `Full` corresponds to model performance when inputting the entire Haystack, whereas Rand, Vect, LongE, KWs, RR3, Orac correspond to retrieval components RAG systems. Models ranked by Oracle Joint Score. For each model, #W_b reports the average number of words per bullet point.
+
 
 ## Table of Contents
 
