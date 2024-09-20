@@ -98,9 +98,16 @@ The above would run the SummHay experiment (i.e., generate summaries) for all re
 
 ## Visualizing Results on SummHay
 
-The `Evaluation.ipynb` notebook contains the scripts that can be used to compile and visualize results, these are the exact scripts that were used to generate Tables in the paper.
+The `Results_Visualization.ipynb` notebook contains the scripts that can be used to compile and visualize results, these are the exact scripts used to generate Table 2 in the paper.
 
+## Benchmarking Automatic Evaluation
 
+Sections 4.2-4.3 of the paper mention an experimental setup to validate the automation of SummHay evaluation.
+We release the 200 annotated samples used for this experiment (see `data/eval_benchmark_data.json`), which contains the manual annotations, as well as predictions obtained from the evaluator models included in our experiments.
+
+The `Eval_Benchmarking.ipynb` notebook includes the code used to compile and visualize the results (corresponding to Table 1 in the paper), and the bias estimates for the automatic metrics (corresponding to Table 4 in the paper's Appendix).
+
+The release of the data can serve as a basis to evaluate future (potentially more efficient) methods for evaluation of the SummHay task.
 
 ## Citation
 
